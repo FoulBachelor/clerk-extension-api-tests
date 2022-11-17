@@ -1,0 +1,16 @@
+_id: wrk_a6295a8c2ca84a6c8ab2e308f521532a
+type: Workspace
+parentId: null
+modified: 1668706711794
+created: 1668703080307
+name: Magento 2
+description: |-
+  API Endpoint Tests
+
+  Platforms:
+  	WooCommerce
+  	PrestaShop
+  	Magento 1
+  	Magento 2
+  	DanDomain Old
+scope: design

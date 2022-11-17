@@ -1,0 +1,37 @@
+_id: req_94e56bf7838d4527b77c6bde085b6646
+type: Request
+parentId: fld_96bb6536074d4e3da98fa28fdd042bd6
+modified: 1668705959087
+created: 1668705588214
+url: "{{ _.domain }}{{ _.route }}setconfig"
+name: /setconfig
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: ""
+parameters:
+  - name: page
+    value: "{{ _.page }}"
+  - name: limit
+    value: "{{ _.limit }}"
+  - name: key
+    value: "{{ _.public_key }}"
+  - name: private_key
+    value: "{{ _.private_key }}"
+  - name: store
+    value: "{{ _.store }}"
+headers:
+  - name: clerk-private-key
+    value: "{{ _.private_key }}"
+  - name: Content-Type
+    value: application/json
+authentication: {}
+metaSortKey: -1668158912190.5708
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

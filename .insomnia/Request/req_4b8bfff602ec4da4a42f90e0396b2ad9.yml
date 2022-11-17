@@ -1,0 +1,33 @@
+_id: req_4b8bfff602ec4da4a42f90e0396b2ad9
+type: Request
+parentId: fld_96bb6536074d4e3da98fa28fdd042bd6
+modified: 1668705972670
+created: 1668705142920
+url: "{{ _.domain }}{{ _.route }}getconfig"
+name: /getconfig
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: page
+    value: "{{ _.page }}"
+  - name: limit
+    value: "{{ _.limit }}"
+  - name: key
+    value: "{{ _.public_key }}"
+  - name: private_key
+    value: "{{ _.private_key }}"
+  - name: store
+    value: "{{ _.store }}"
+headers:
+  - name: clerk-private-key
+    value: "{{ _.private_key }}"
+authentication: {}
+metaSortKey: -1668159128608.377
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

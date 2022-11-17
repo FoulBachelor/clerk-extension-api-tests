@@ -1,0 +1,13 @@
+_id: fld_2190ddab6e544aba978a40b28fea5155
+type: RequestGroup
+parentId: wrk_a6295a8c2ca84a6c8ab2e308f521532a
+modified: 1668706055781
+created: 1668704898078
+name: Magento 2
+description: ""
+environment:
+  route: /clerk/
+environmentPropertyOrder:
+  "&":
+    - route
+metaSortKey: -1668703742179

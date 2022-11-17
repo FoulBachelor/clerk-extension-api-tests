@@ -1,0 +1,33 @@
+_id: req_deaf087106b24a2aa93175f4d1ed70f6
+type: Request
+parentId: fld_96bb6536074d4e3da98fa28fdd042bd6
+modified: 1668705990015
+created: 1668705142913
+url: "{{ _.domain }}{{ _.route }}category"
+name: /category
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: page
+    value: "{{ _.page }}"
+  - name: limit
+    value: "{{ _.limit }}"
+  - name: key
+    value: "{{ _.public_key }}"
+  - name: private_key
+    value: "{{ _.private_key }}"
+  - name: store
+    value: "{{ _.store }}"
+headers:
+  - name: clerk-private-key
+    value: "{{ _.private_key }}"
+authentication: {}
+metaSortKey: -1668175909312.125
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,29 @@
+_id: req_66f6df1f0e0a43ba81a5534af6b6cef3
+type: Request
+parentId: fld_d6480f356635459fbec09ec4e969f08e
+modified: 1668707419856
+created: 1668704605452
+url: "{{ _.domain }}{{ _.route }}category"
+name: /category
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: page
+    value: "{{ _.page }}"
+  - name: limit
+    value: "{{ _.limit }}"
+  - name: key
+    value: "{{ _.public_key }}"
+  - name: private_key
+    value: "{{ _.private_key }}"
+headers: []
+authentication: {}
+metaSortKey: -1668175909312.125
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

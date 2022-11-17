@@ -1,0 +1,33 @@
+_id: req_5c67e8bc7b7a483b93c08f84c6a0d868
+type: Request
+parentId: fld_96bb6536074d4e3da98fa28fdd042bd6
+modified: 1668706043235
+created: 1668705142912
+url: "{{ _.domain }}{{ _.route }}category"
+name: /category
+description: ""
+method: POST
+body: {}
+parameters:
+  - name: page
+    value: "{{ _.page }}"
+  - name: limit
+    value: "{{ _.limit }}"
+  - name: key
+    value: "{{ _.public_key }}"
+  - name: private_key
+    value: "{{ _.private_key }}"
+  - name: store
+    value: "{{ _.store }}"
+headers:
+  - name: clerk-private-key
+    value: "{{ _.private_key }}"
+authentication: {}
+metaSortKey: -1668192956376.25
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,29 @@
+_id: req_d4a5fdcba7294b3e9280c7db061d44f9
+type: Request
+parentId: fld_429d0ad478934f029a24aab104bbced3
+modified: 1668707094141
+created: 1668706033506
+url: "{{ _.domain }}{{ _.route }}order"
+name: /order
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: page
+    value: "{{ _.page }}"
+  - name: limit
+    value: "{{ _.limit }}"
+  - name: key
+    value: "{{ _.public_key }}"
+  - name: private_key
+    value: "{{ _.private_key }}"
+headers: []
+authentication: {}
+metaSortKey: -1668163124014.0312
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

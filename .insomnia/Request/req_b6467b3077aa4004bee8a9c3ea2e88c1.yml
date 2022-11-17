@@ -1,0 +1,29 @@
+_id: req_b6467b3077aa4004bee8a9c3ea2e88c1
+type: Request
+parentId: fld_d53759b4807e460ea92957b11c1a0f37
+modified: 1668707320800
+created: 1668705036892
+url: "{{ _.domain }}{{ _.route }}getconfig"
+name: /getconfig
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: page
+    value: "{{ _.page }}"
+  - name: limit
+    value: "{{ _.limit }}"
+  - name: key
+    value: "{{ _.public_key }}"
+  - name: private_key
+    value: "{{ _.private_key }}"
+headers: []
+authentication: {}
+metaSortKey: -1668159128608.377
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,32 @@
+_id: req_ba610c62ac1b4d9cb9421d1e0556f8e3
+type: Request
+parentId: fld_d6480f356635459fbec09ec4e969f08e
+modified: 1668704757785
+created: 1668704656043
+url: "{{ _.domain }}{{ _.route }}customer"
+name: /customer
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {"key": "{{ _.public_key }}",
+    "private_key": "{{ _.private_key }}"}
+parameters:
+  - name: page
+    value: "{{ _.page }}"
+  - name: limit
+    value: "{{ _.limit }}"
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_3825c783ba6b486fa43c68a9371598d9
+authentication: {}
+metaSortKey: -1668160993131.0156
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
