@@ -1,0 +1,220 @@
+* Clerk.io Extensions Settings QA
+
+** my.clerk.io
+
+  Please make the sidebar with dashboard. This bad boy right here:
+
+  #+BEGIN_SRC html
+  <nav ng-controller="NavCtrl as nav" class="ng-scope">
+  #+END_SRC
+  
+  it needs
+
+  #+BEGIN_SRC cs
+  .class {
+    overflow-y: scroll;
+    max-height: -webkit-fill-available;
+    max-height: -moz-available;
+    max-height: fill-available;
+  }
+  .class::-webkit-scrollbar {
+    display: none;
+  }
+  .class {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  #+END_SRC
+  
+  Otherwise you cant get to the bottom settings on a small screen, and you know I tile my windows. You know this.
+
+** Magento 2
+
+*** MYCLERK
+
+  1. Data Sync
+    + Main Toggle :: Not needed, as Magento has no overall sync toggle.
+    + Additional Fields :: Could use clarification that it is additional fields for products.
+    + Sync Visibility :: Should not be type boolean. Is 4 cases: catalog, catalog & search, search, none. Values are:
+    #+BEGIN_SRC js
+    {1: 'Not Visible Individually', 2: 'Catalog', 3: 'Search', 4: 'Catalog, Search'}
+    #+END_SRC
+    + Sync disabled orders :: Should be named *Disable Order Sync*
+    + Sync enabled order :: Should be named *Enable Return Tracking*
+    + Image Width + Height :: Image size is defined by a string which describes size, not measurements in px. The sizes allowed are individual per shop as they can be created adhoc.
+      - Can be single string input for intial release.
+      - Should expand get config to return a list of possible values for the shop.
+    + Import URL :: This is not a needed setting for Magento 2.
+  2. Live Search
+    + Content Template :: This should not be called template. People might confuse it with design, I think it should just be called Content as that is what we called it in the normal sidebar.
+    + Page Type :: Missing selector for page type. Possible values should be:
+    #+BEGIN_SRC js
+    {"All": "all", "Blog": "blog", "CMS Page": "cms page"}
+    #+END_SRC
+
+  3. Search Page
+    + Page Type :: Missing selector for page type. Possible values should be:
+    #+BEGIN_SRC js
+    {"All": "all", "Blog": "blog", "CMS Page": "cms page"}
+    #+END_SRC
+  4. Facets
+    + Multi Select Facets :: Multi-selected can only be selected from the already active facets, otherwise it breaks the settings in a way the search will not render. This means our input for multi-select should be a *dropdown* only offering the already active facets. This creates the issue that we only get the settings from the client upon first pageload. We should be getting the full config after every write to update all compenents without reload. Otherwise people will add attributes, and try to multiselect them without reloading and be confused.
+    + Design Template :: I think it would be good if we called it Facets Design ID, or Facets Template ID, is it is the numerical ID required for it to work. This should also be changed in the extension, as I see it filled out wrong a lot. It also means that the tag form is likely not the best choice. It should limit the user to a single string input.
+  5. Product
+    + Filter Duplicates :: Missing Boolean toggle which controls the use of *data-exclude-from* in recommendations. Key is: *PRODUCT_FILTER_DUPLICATES*
+  6. Cart
+    + Filter Duplicates :: Missing Boolean toggle which controls the use of *data-exclude-from* in recommendations. Key is: *CART_FILTER_DUPLICATES*
+  7. Powerstep
+    + Filter Duplicates :: Missing Boolean toggle which controls the use of *data-exclude-from* in recommendations. Key is: *POWERSTEP_FILTER_DUPLICATES*
+  8. Exit Intent
+  9. Categories
+    + Filter Duplicates :: Missing Boolean toggle which controls the use of *data-exclude-from* in recommendations. Key is: *CATEGORY_FILTER_DUPLICATES*
+    + Order Within UI :: The categories should be placed in the menu more or less where it is on the guides and modules. It should be either right before product settings, or right after.
+
+
+*** EXTENSION
+  1. Data Sync
+    + Image Sizes :: Add ability to export avaialble image sizes from the shop.
+
+** Magento 1
+
+*** MYCLERK
+
+  1. Data Sync
+    + Main Toggle :: Will turn off module for scope, but not on. This is likely due to the keys no longer identifying the scope once you disable the module. I do not see a secure way to enable the module remotely as a result, since you wouldn't be able to properly validate the request against keys in a scope.
+    + Additional Fields :: Could use clarification that it is additional fields for products.
+    + Collect Basket :: Should be plural like in the extension.
+    + Sync Visibility :: Should not be type boolean. Is 4 cases: catalog, catalog & search, search, none. Values are:
+    #+BEGIN_SRC js
+    {1: 'Not Visible Individually', 2: 'Catalog', 3: 'Search', 4: 'Catalog, Search', 0: 'No Preference for Visibility'}
+    #+END_SRC
+    + Sync disabled orders :: Should be named *Disable Order Sync*
+    + Sync enabled order :: Should be named *Enable Return Tracking*
+    + Sync Subscribers :: Missing from settings panel. Key is: *SUBSCRIBER_SYNCHRONIZATION_ENABLED*
+    + Import Url :: Should not be possible to change via extension manager, since it is a static value menat to inform the client not a setting to change. If we show it, it shouldn't be an input.
+
+  2. Live Search
+    + Content Template :: This should not be called template. People might confuse it with design, I think it should just be called Content as that is what we called it in the normal sidebar.
+    + Page Type :: Missing selector for page type. Possible values should be:
+    #+BEGIN_SRC js
+    {"All": "all", "Blog": "blog", "CMS Page": "cms page"}
+    #+END_SRC
+    + Numeric Selector for Categories | Suggestions | Pages :: We should not allow a value higher than 10 to be entered, as it will result in the value 1 being set in the module.
+  3. Search Page
+    + Content Template :: This should not be called template. People might confuse it with design, I think it should just be called Content as that is what we called it in the normal sidebar.
+    + Page Type :: Missing selector for page type. Possible values should be:
+    #+BEGIN_SRC js
+    {"All": "all", "Blog": "blog", "CMS Page": "cms page"}
+    #+END_SRC
+    + Numeric Selector for Categories | Suggestions | Pages :: We should not allow a value higher than 10 to be entered, as it will result in the value 1 being set in the module.
+  4. Facets
+    + Add Facet :: There are no options populated in the dropdown. It should either be input type:
+      - Tag :: Free text input strings added.
+      - Selector :: List of attributes available since last sync via *search/facets* endpoint.
+    + Multi Select Facets :: Multi-selected can only be selected from the already active facets, otherwise it breaks the settings in a way the search will not render. This means our input for multi-select should be a *dropdown* only offering the already active facets. This creates the issue that we only get the settings from the client upon first pageload. We should be getting the full config after every write to update all compenents without reload. Otherwise people will add attributes, and try to multiselect them without reloading and be confused.
+    + Design Template :: I think it would be good if we called it Facets Design ID, or Facets Template ID, is it is the numerical ID required for it to work. This should also be changed in the extension, as I see it filled out wrong a lot. It also means that the tag form is likely not the best choice. It should limit the user to a single string input.
+  5. Product
+    + Filter Duplicates :: Missing Boolean toggle which controls the use of *data-exclude-from* in recommendations. Key is: *PRODUCT_FILTER_DUPLICATES*
+  6. Cart
+    + Filter Duplicates :: Missing Boolean toggle which controls the use of *data-exclude-from* in recommendations. Key is: *CART_FILTER_DUPLICATES*
+  7. Powerstep
+    + Filter Duplicates :: Missing Boolean toggle which controls the use of *data-exclude-from* in recommendations. Key is: *POWERSTEP_FILTER_DUPLICATES*
+  8. Exit Intent
+  9. Categories
+    + Filter Duplicates :: Missing Boolean toggle which controls the use of *data-exclude-from* in recommendations. Key is: *CATEGORY_FILTER_DUPLICATES*
+    + Order Within UI :: The categories should be placed in the menu more or less where it is on the guides and modules. It should be either right before product settings, or right after.
+
+*** EXTENSION
+
+** Woocommerce
+
+*** MYCLERK
+
+  1. Data Sync
+***** The missing settings have to do with the fact, that boolean values set to false will simply not be found in clerk_options. If we make an initial call to woocommerce to get all the keys currently configured, the things set to off will simply not be present in the JSON response. We need to know the keys in myclerk, and if one is missing we assume it is falsy.
+    + Main Toggle :: Not needed, as WooCommerce has no overall sync toggle.
+    + Language :: Missing input for Language selection. Should be dropdown. Key is: *lang*
+    + Customer Sync Enabled :: Missing Boolean setting. Key is: *customer_sync_enabled*
+    + Customer Additional Fields :: Missing Tag Type input similar to page or product attributes. Key is: *customer_sync_customer_fields*
+    + Collect Email Signup Message :: Missing String type input with custom signup message on checkout page. Key is: *collect_emails_signup_message*
+    + Collect Basket :: Should be plural.
+    + Disable Order Sync :: Setting missing. Should be boolean type input. Key is: *disable_order_synchronization*
+    + Image Size :: Missing input for selecting image size. Since custom image sizes can be defined per shop, this input can either be:
+      - Free Text :: Simple string input, where you have to know the available / possible sizes before you type it.
+      - Dropdown :: Dropdown with the available sizes for the store. Some that will always be present are:
+      #+BEGIN_SRC js
+      ["woocommerce_thumbnail", "woocommerce_single", "woocommerce_gallery_thumbnail", "medium"]
+      #+END_SRC
+    + Import URL :: This should not be allowed / possible to change from my.clerk.io. It is there to inform the client.
+  2. Live Search
+    + Include Pages :: Missing Boolean type input. Key is: *livesearch_include_pages*
+    + Include Suggestions :: Missing Boolean type input. Key is: *livesearch_include_suggestions*
+    + Page Type :: Missing selector for page type. Possible values should be:
+    #+BEGIN_SRC js
+    {"All": "all", "Blog": "blog", "CMS Page": "cms page"}
+    #+END_SRC
+  3. Search Page
+    + Search Page :: Missing input for selecting the search page ID. Key is: *search_page*
+      - The page id can be any CMS page on the store, but is created specifically for the search during setup. Ideally we should be able to export the possible page id's and their names as a dict to populate a dropdown. Alternatively we can use a text input for initial release.
+    + Number of Pages :: This is currently tied to the *search_page* key. It should be tied to *search_pages*
+    + Include Pages :: Missing Boolean type input. Key is: *search_include_pages*
+    + Include Categories :: Missing Boolean type input. Key is: *search_include_categories*
+    + Content Template :: Should just be called *Content*
+  4. Facets
+    + Design Template :: I think it would be good if we called it Facets Design ID, or Facets Template ID, is it is the numerical ID required for it to work. This should also be changed in the extension, as I see it filled out wrong a lot. It also means that the tag form is likely not the best choice. It should limit the user to a single string input.
+  5. Product
+    + Filter Duplicates :: Missing Boolean type input. Key is: *product_excl_duplicates*
+  6. Cart
+    + Filter Duplicates :: Missing Boolean type input. Key is: *cart_excl_duplicates*
+  7. Powerstep
+    + Filter Duplicates :: Missing Boolean type input. Key is: *powerstep_excl_duplicates*
+    + Powerstep Page :: Missing input for selecting the powerstep page ID. Key is: *powerstep_page*
+      - The page id can be any CMS page on the store, but is created specifically for the search during setup. Ideally we should be able to export the possible page id's and their names as a dict to populate a dropdown. Alternatively we can use a text input for initial release.
+  8. Exit Intent
+  9. Categories
+    + Filter Duplicates :: Missing Boolean type input. Key is: *category_excl_duplicates*
+
+*** EXTENSION
+  1. Data Sync
+    + Image Sizes :: Add ability to export avaialble image sizes from the shop.
+  2. Search Page
+    + Search Page :: Add ability to export pages eligible to be selected for use as search page, with both names and ids.
+  3. Powerstep
+    + Powerstep Page :: Add ability to export pages eligible to be selected for use as powerstep page, with both names and ids.
+
+** PrestaShop 1.6 && PrestaShop 1.7
+
+*** MYCLERK
+
+  1. Data Sync
+    + Main Toggle :: Not needed, as Prestashop has no overall sync toggle. It is currently tied to *clerk_datasync_use_real_time_updates*
+    + Real Time Updates :: Missing Boolean type input. Key is: *clerk_datasync_use_real_time_updates*
+    + Import URL :: This should not be allowed / possible to change from my.clerk.io. It is there to inform the client.
+    + Additional Fields :: Could use clarification that it is additional fields for products.
+    + Sync disabled orders :: Should be named *Disable Order Sync*
+    + Include Product Features :: Missing Boolean type input. Key is: *clerk_datasync_product_features*
+    + Sync Subscribers :: Missing from settings panel. Key is: *clerk_datasync_sync_subscribers*
+  2. Live Search
+    + Content Template :: This should not be called template. People might confuse it with design, I think it should just be called Content as that is what we called it in the normal sidebar.
+    + Page Type :: Missing selector for page type. Possible values should be:
+    #+BEGIN_SRC js
+    {"All": "all", "Blog": "blog", "CMS Page": "cms page"}
+    #+END_SRC
+  3. Search Page
+    + Page Type :: Missing selector for page type. Possible values should be:
+    #+BEGIN_SRC js
+    {"All": "all", "Blog": "blog", "CMS Page": "cms page"}
+    #+END_SRC
+  4. Facets
+    + Design Template :: I think it would be good if we called it Facets Design ID, or Facets Template ID, is it is the numerical ID required for it to work. This should also be changed in the extension, as I see it filled out wrong a lot. It also means that the tag form is likely not the best choice. It should limit the user to a single string input.
+  5. Product
+    + Filter Duplicates :: Missing Boolean type input. Key is: *clerk_product_exclude_duplicates*
+  6. Cart
+    + Filter Duplicates :: Missing Boolean type input. Key is: *clerk_cart_exclude_duplicates*
+  7. Powerstep
+    + Filter Duplicates :: Missing Boolean type input. Key is: *clerk_powerstep_exclude_duplicates*
+  8. Exit Intent
+  9. Categories
+    + Filter Duplicates :: Missing Boolean type input. Key is: *clerk_category_exclude_duplicates*
+
+*** EXTENSION
