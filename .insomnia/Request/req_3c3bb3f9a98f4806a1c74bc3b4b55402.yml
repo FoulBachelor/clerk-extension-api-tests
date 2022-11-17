@@ -1,7 +1,7 @@
 _id: req_3c3bb3f9a98f4806a1c74bc3b4b55402
 type: Request
 parentId: fld_d6480f356635459fbec09ec4e969f08e
-modified: 1668704764330
+modified: 1668711044802
 created: 1668704618342
 url: "{{ _.domain }}{{ _.route }}order"
 name: /order
@@ -20,7 +20,6 @@ parameters:
 headers:
   - name: Content-Type
     value: application/json
-    id: pair_3825c783ba6b486fa43c68a9371598d9
 authentication: {}
 metaSortKey: -1668167385780.0625
 isPrivate: false

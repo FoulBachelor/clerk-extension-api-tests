@@ -1,7 +1,7 @@
 _id: env_e20ea597ffc74778b327ae04a4eaa1f6
 type: Environment
 parentId: wrk_a6295a8c2ca84a6c8ab2e308f521532a
-modified: 1668709461623
+modified: 1668711488344
 created: 1668703080310
 name: Base Environment
 data:
@@ -11,7 +11,6 @@ data:
   limit: 100
   page: 0
   store: 1
-  _store: used only for magento 1 requests
 dataPropertyOrder:
   "&":
     - public_key
@@ -20,7 +19,6 @@ dataPropertyOrder:
     - limit
     - page
     - store
-    - _store
 color: null
 isPrivate: false
 metaSortKey: 1663928280907

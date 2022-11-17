@@ -1,12 +1,12 @@
-_id: req_b6467b3077aa4004bee8a9c3ea2e88c1
+_id: req_7cd4aedde6054074b5c6da1d84a118a5
 type: Request
-parentId: fld_d53759b4807e460ea92957b11c1a0f37
-modified: 1668707320800
-created: 1668705036892
-url: "{{ _.domain }}{{ _.route }}getconfig"
-name: /getconfig
+parentId: fld_96bb6536074d4e3da98fa28fdd042bd6
+modified: 1668711155201
+created: 1668711143436
+url: "{{ _.domain }}{{ _.route }}category"
+name: /page
 description: ""
-method: GET
+method: POST
 body: {}
 parameters:
   - name: page
@@ -17,9 +17,13 @@ parameters:
     value: "{{ _.public_key }}"
   - name: private_key
     value: "{{ _.private_key }}"
-headers: []
+  - name: store
+    value: "{{ _.store }}"
+headers:
+  - name: clerk-private-key
+    value: "{{ _.private_key }}"
 authentication: {}
-metaSortKey: -1668159128608.377
+metaSortKey: -1668175376591.371
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

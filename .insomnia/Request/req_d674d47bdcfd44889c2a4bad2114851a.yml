@@ -1,10 +1,10 @@
-_id: req_005fc58e3c224d48a8c16e9a6726498e
+_id: req_d674d47bdcfd44889c2a4bad2114851a
 type: Request
-parentId: fld_d53759b4807e460ea92957b11c1a0f37
-modified: 1668707498653
-created: 1668705036894
-url: "{{ _.domain }}{{ _.route }}setconfig"
-name: /setconfig
+parentId: fld_2190ddab6e544aba978a40b28fea5155
+modified: 1668711127795
+created: 1668711127472
+url: "{{ _.domain }}{{ _.route }}category"
+name: /page
 description: ""
 method: GET
 body: {}
@@ -19,7 +19,7 @@ parameters:
     value: "{{ _.private_key }}"
 headers: []
 authentication: {}
-metaSortKey: -1668158928838.0942
+metaSortKey: -1668174311149.8633
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

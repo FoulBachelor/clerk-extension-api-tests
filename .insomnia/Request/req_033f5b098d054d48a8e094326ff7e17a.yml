@@ -1,27 +1,25 @@
-_id: req_87dd52f73f5a4b908975ddf2e0898531
+_id: req_033f5b098d054d48a8e094326ff7e17a
 type: Request
 parentId: fld_d6480f356635459fbec09ec4e969f08e
-modified: 1668711060985
-created: 1668704589473
-url: "{{ _.domain }}{{ _.route }}category"
-name: /category
+modified: 1668711074046
+created: 1668710980738
+url: "{{ _.domain }}{{ _.route }}page"
+name: /page
 description: ""
-method: POST
-body:
-  mimeType: application/json
-  text: |-
-    {"key": "{{ _.public_key }}",
-    "private_key": "{{ _.private_key }}"}
+method: GET
+body: {}
 parameters:
   - name: page
     value: "{{ _.page }}"
   - name: limit
     value: "{{ _.limit }}"
-headers:
-  - name: Content-Type
-    value: application/json
+  - name: key
+    value: "{{ _.public_key }}"
+  - name: private_key
+    value: "{{ _.private_key }}"
+headers: []
 authentication: {}
-metaSortKey: -1668192956376.25
+metaSortKey: -1668169516663.0781
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
