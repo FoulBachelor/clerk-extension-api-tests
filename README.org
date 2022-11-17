@@ -23,8 +23,8 @@ A notable exception are the ~getconfig~ and ~setconfig~ endpoints, which are not
         - A short request format intended to initiate a query for information. The data of the request is visible in the URL.
 ** Endpoints
     + product :: 
-    + category :: also needs "&fields=name,subcategories,url" parameter to include all data
-    + order :: also needs "&fields=products,email,customer" parameter to include all data
+    + category :: also needs ~&fields=name,subcategories,url~ parameter to include all data
+    + order :: also needs ~&fields=products,email,customer~ parameter to include all data
     + customer :: 
     + page :: 
     + version :: 
