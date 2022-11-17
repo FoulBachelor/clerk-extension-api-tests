@@ -10,7 +10,7 @@ A notable exception are the ~getconfig~ and ~setconfig~ endpoints, which are not
         - From version 3.8.3 it is no longer possible to authenticate sending keys as GET parameters.
     + PrestaShop ::
         - It is possible to call the endpoints with this alternate syntax
-        - https://www.domain.com/?fc=module&module=clerk&controller=ENDPOINT&limit=X&page=Y
+          ~https://www.domain.com/?fc=module&module=clerk&controller=ENDPOINT&limit=X&page=Y~
     + Magento 1 ::
         - It is mandatory to provide clerk-private-key in the header of the request
         - It is necessary to provide a store id in the request. This is normally contained at the end of the suggested import url in the admin.
@@ -22,14 +22,14 @@ A notable exception are the ~getconfig~ and ~setconfig~ endpoints, which are not
     + GET ::
         - A short request format intended to initiate a query for information. The data of the request is visible in the URL.
 ** Endpoints
-    + product :: 
-    + category :: also needs ~&fields=name,subcategories,url~ parameter to include all data
-    + order :: also needs ~&fields=products,email,customer~ parameter to include all data
-    + customer :: 
-    + page :: 
-    + version :: 
-    + getconfig :: provides json body of requests stores current extension config.
-    + setconfig :: needs to include a valid json body matching the extension settings.
+    + product :: Product Data
+    + category :: Category Data, also needs ~&fields=name,subcategories,url~ parameter to include all data
+    + order :: Order Data, also needs ~&fields=products,email,customer~ parameter to include all data
+    + customer :: Customer Data
+    + page :: Page Data
+    + version :: Version Data
+    + getconfig :: Get Config Data, provides json body of requests stores current extension config.
+    + setconfig :: Set Config Data, needs to include a valid json body matching the extension settings.
 ** User Configuration
     To run tests, I would recommend manipulating the requests api keys and pagination, by doing 1 of 2 things. 
         - Edit the values in the BASE ENVIRONMENT json. :: Good for quick test.
