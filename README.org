@@ -3,7 +3,7 @@
 
 The *Platforms* are each given a folder with their name. This is found in the left hand side.
 Inside the folder, are requests to all endpoints a platform has or is planned to have.
-A notable exception are the ~getconfig~ and ~setconfig~ endpoints, which are not current implemented as such for DanDomain.
+Some notable exception are the ~getconfig~ and ~setconfig~ endpoints, which are not current implemented as such for DanDomain.
 
 ** Platforms
     + WooCommerce ::
