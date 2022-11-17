@@ -1,9 +1,9 @@
 _id: req_c91230fa502e40b9803b481a5cd4514a
 type: Request
 parentId: fld_2190ddab6e544aba978a40b28fea5155
-modified: 1668711132846
+modified: 1668711833303
 created: 1668711120173
-url: "{{ _.domain }}{{ _.route }}category"
+url: "{{ _.domain }}{{ _.route }}page"
 name: /page
 description: ""
 method: POST

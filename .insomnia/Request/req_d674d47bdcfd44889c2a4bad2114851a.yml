@@ -1,9 +1,9 @@
 _id: req_d674d47bdcfd44889c2a4bad2114851a
 type: Request
 parentId: fld_2190ddab6e544aba978a40b28fea5155
-modified: 1668711127795
+modified: 1668711830211
 created: 1668711127472
-url: "{{ _.domain }}{{ _.route }}category"
+url: "{{ _.domain }}{{ _.route }}page"
 name: /page
 description: ""
 method: GET
