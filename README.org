@@ -33,7 +33,7 @@ Some notable exception are the ~getconfig~ and ~setconfig~ endpoints, which are 
 ** User Configuration
     To run tests, I would recommend manipulating the requests api keys and pagination, by doing 1 of 2 things. 
         - Edit the values in the BASE ENVIRONMENT json. :: Good for quick test.
-        - Create SUB ENVIRONMENTS with your chosen values for keys etc. :: Best if you wish to debug something for a client, as the responses to ur tries are saved. 
+        - Create SUB ENVIRONMENTS with your chosen values for keys etc. :: Best if you wish to debug something for a client, as the responses to your tries are saved. 
     Example JSON config:
 
     #+NAME: BASE ENVIRONMENT
