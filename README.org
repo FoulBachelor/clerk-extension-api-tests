@@ -22,12 +22,12 @@ A notable exception are the * getconfig * and * setconfig * endpoints, which are
     GET
         A short request format intended to initiate a query for information. The data of the request is visible in the URL.
 ** Endpoints
-    + product
+    + product :: 
     + category :: also needs "&fields=name,subcategories,url" parameter to include all data
     + order :: also needs "&fields=products,email,customer" parameter to include all data
-    + customer
-    + page
-    + version
+    + customer :: 
+    + page :: 
+    + version :: 
     + getconfig :: provides json body of requests stores current extension config.
     + setconfig :: needs to include a valid json body matching the extension settings.
 ** User Configuration
